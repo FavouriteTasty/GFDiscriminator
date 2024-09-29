@@ -12,7 +12,7 @@ def save_spectrum(spectrum, save_path):
 def add_gaussian_noise(image, noise_level):
     row, col = image.shape
     mean = 0
-    std_dev = noise_level / 255.0 
+    std_dev = noise_level
     
     gauss = np.random.normal(mean, std_dev, (row, col))
     noisy = image + gauss
@@ -24,7 +24,7 @@ def main():
     img_path = r'denoise.tif' 
     original_image = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE) 
 
-    noise_levels = [0, 10, 20, 30, 40, 50]
+    noise_levels = [0, 10, 20, 30, 40, 50, 100]
     noised_images = [add_gaussian_noise(original_image, i) if i != 0 else original_image for i in noise_levels]
     
     ffts = []
