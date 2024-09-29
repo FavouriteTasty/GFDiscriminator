@@ -8,10 +8,9 @@ def normalize_spectrum(spectrum):
 def save_spectrum(spectrum, save_path):
     spectrum_normalized = normalize_spectrum(spectrum)
     cv2.imwrite(save_path, spectrum_normalized)
-    print(f"Spectrum image saved to {save_path}")
 
 def main():
-    img_path = r'gt\Brain__2w_01\1.tif' 
+    img_path = r'zoom.tif' 
     original_image = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE) 
 
     kernel_sizes = [0, 3, 5, 7, 9, 11]

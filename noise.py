@@ -8,7 +8,6 @@ def normalize_spectrum(spectrum):
 def save_spectrum(spectrum, save_path):
     spectrum_normalized = normalize_spectrum(spectrum)
     cv2.imwrite(save_path, spectrum_normalized)
-    print(f"Spectrum image saved to {save_path}")\
 
 def add_gaussian_noise(image, noise_level):
     row, col = image.shape
@@ -22,7 +21,7 @@ def add_gaussian_noise(image, noise_level):
     return noisy.astype(np.uint8)
 
 def main():
-    img_path = r'gt\Brain__2w_01\1.tif' 
+    img_path = r'denoise.tif' 
     original_image = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE) 
 
     noise_levels = [0, 10, 20, 30, 40, 50]
